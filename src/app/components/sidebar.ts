@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,9 +10,9 @@ import { Component } from '@angular/core';
         <input type="text" placeholder="Search sections...">
       </div>
       <ul class="nav-list" id="navList">
-        <li><a class="nav-link active" href="#section-1"><span><span class="num">01</span>Validate TPlus Account</span></a></li>
-        <li><a class="nav-link" href="#section-2"><span><span class="num">02</span>Deposit Transaction</span></a></li>
-        <li><a class="nav-link" href="#section-3"><span><span class="num">03</span>Cancel Transaction</span></a></li>
+        <li><a class="nav-link" [class.active]="activeSection === 'section-1'" href="#section-1"><span><span class="num">01</span>Validate TPlus Account</span></a></li>
+        <li><a class="nav-link" [class.active]="activeSection === 'section-2'" href="#section-2"><span><span class="num">02</span>Deposit Transaction</span></a></li>
+        <li><a class="nav-link" [class.active]="activeSection === 'section-3'" href="#section-3"><span><span class="num">03</span>Cancel Transaction</span></a></li>
       </ul>
     </nav>
   `,
@@ -45,4 +46,42 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class SidebarComponent {}
+export class SidebarComponent implements OnInit {
+  activeSection: string = 'section-1';
+  private sections: string[] = ['section-1', 'section-2', 'section-3'];
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => this.onWindowScroll(), 100);
+    }
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    
+    let currentActive = this.activeSection;
+    let best = -Infinity;
+
+    for (const sectionId of this.sections) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const top = element.getBoundingClientRect().top;
+        if (top <= 100 && top > best) {
+          best = top;
+          currentActive = sectionId;
+        }
+      }
+    }
+    
+    if (window.scrollY < 50) {
+      currentActive = 'section-1';
+    }
+    
+    if (this.activeSection !== currentActive) {
+      this.activeSection = currentActive;
+    }
+  }
+}
