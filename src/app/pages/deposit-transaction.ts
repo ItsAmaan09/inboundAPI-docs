@@ -1,0 +1,102 @@
+import { Component } from '@angular/core';
+import { CodeBlockComponent } from '../components/code-block';
+import { HighlightJsonPipe, HighlightCurlPipe } from '../pipes/highlight.pipe';
+
+@Component({
+  selector: 'app-deposit-transaction',
+  standalone: true,
+  imports: [CodeBlockComponent, HighlightJsonPipe, HighlightCurlPipe],
+  template: `
+    <section id="section-2">
+      <h2>Deposit Transaction</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      </p>
+
+      <div class="code-block" style="margin-bottom: 24px;">
+        <div class="code-block-header"><span class="code-lang">HTTP</span></div>
+        <pre><code><span class="method">POST</span> <span class="path">/api/User/DepositTransaction</span></code></pre>
+      </div>
+
+      <h3>Required Headers</h3>
+      <table>
+        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">X-API-Key</td><td>&#123;your_api_key&#125; <span class="req">*</span></td></tr>
+          <tr><td class="field-name">Content-Type</td><td>application/json <span class="req">*</span></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Request Body</h3>
+      <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td class="field-name">userName<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">password<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">MOP</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">accountNo</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">amount</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">MMtServiceName</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">charges</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">description</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">remittanceReferenceNumber</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">country</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">city</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">remitterName</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">remitterMobile</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">IdType</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">DateOfBirth</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">ExpiryDate</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">IssueDate</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">IdNumber</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+        </tbody>
+      </table>
+
+      <h4>Example Request</h4>
+      <app-code-block lang="cURL" [codeToCopy]="curlRequest">
+        <span [innerHTML]="curlRequest | highlightCurl"></span>
+      </app-code-block>
+
+      <h3>Response</h3>
+      <p><em>(Placeholder response as the exact JSON response was not provided)</em></p>
+      <app-code-block lang="JSON" [codeToCopy]="jsonResponse">
+        <span [innerHTML]="jsonResponse | highlightJson"></span>
+      </app-code-block>
+    </section>
+  `
+})
+export class DepositTransactionComponent {
+  curlRequest = `curl --location 'https://inboundv5.sombank.so/api/User/DepositTransaction' \\
+--header 'X-API-Key: yMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQyMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQ' \\
+--data-raw '{
+    "userName": "worldremit",
+    "password": "Wr@123456",
+    "MOP": "TPLUS",
+    "accountNo": "+918949399313",
+    "amount": "1",
+    "MMtServiceName": "",
+    "charges": "1",
+    "description": "Deposit",
+    "remittanceReferenceNumber": "RE0000001610",
+    "country": "UAE",
+    "city": "DUBAI",
+    "remitterName": "Said Hassan",
+    "remitterMobile": "+971553229960",
+    "IdType": "EID",
+    "DateOfBirth": "17-Jul-1990",
+    "ExpiryDate": "12-Aug-2026",
+    "IssueDate": "05-Nov-2022",
+    "IdNumber": "884-1990-111111"
+}'`;
+
+  jsonResponse = `{
+    "success": true,
+    "message": "Deposit processed successfully",
+    "status": 200,
+    "data": {
+        "transactionId": "TXN9876543210",
+        "status": "Completed"
+    },
+    "errors": null
+}`;
+}

@@ -1,11 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { HeaderComponent } from './components/header';
+import { SidebarComponent } from './components/sidebar';
+import { ValidateTPlusAccountComponent } from './pages/validate-account';
+import { DepositTransactionComponent } from './pages/deposit-transaction';
+import { CancelTransactionComponent } from './pages/cancel-transaction';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [HeaderComponent, SidebarComponent, ValidateTPlusAccountComponent, DepositTransactionComponent, CancelTransactionComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('aml-api-docs');
+  title = 'InBound API Docs';
 }
