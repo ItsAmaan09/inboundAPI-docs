@@ -69,10 +69,10 @@ export class DepositTransactionComponent {
   curlRequest = `curl --location 'https://inboundv5.sombank.so/api/User/DepositTransaction' \\
 --header 'X-API-Key: yMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQyMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQ' \\
 --data-raw '{
-    "userName": "worldremit",
-    "password": "Wr@123456",
+    "userName": "",
+    "password": "",
     "MOP": "TPLUS",
-    "accountNo": "+918949399313",
+    "accountNo": "",
     "amount": "1",
     "MMtServiceName": "",
     "charges": "1",
@@ -80,13 +80,13 @@ export class DepositTransactionComponent {
     "remittanceReferenceNumber": "RE0000001610",
     "country": "UAE",
     "city": "DUBAI",
-    "remitterName": "Said Hassan",
-    "remitterMobile": "+971553229960",
-    "IdType": "EID",
-    "DateOfBirth": "17-Jul-1990",
-    "ExpiryDate": "12-Aug-2026",
-    "IssueDate": "05-Nov-2022",
-    "IdNumber": "884-1990-111111"
+    "remitterName": "",
+    "remitterMobile": "",
+    "IdType": "",
+    "DateOfBirth": "",
+    "ExpiryDate": "",
+    "IssueDate": "",
+    "IdNumber": ""
 }'`;
 
   jsonResponse = `{
