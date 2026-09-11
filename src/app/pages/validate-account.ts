@@ -31,10 +31,14 @@ import { HighlightJsonPipe, HighlightCurlPipe } from '../pipes/highlight.pipe';
       <table>
         <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
         <tbody>
-          <tr><td class="field-name">userName<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr>
+            <td class="field-name">userName<span class="req">*</span>
+          </td>
+          <td><span class="type-badge">string</span>
+        </td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
           <tr><td class="field-name">password<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
-          <tr><td class="field-name">account</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
-          <tr><td class="field-name">Mop</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">account<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr><td class="field-name">Mop<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
           <tr><td class="field-name">bankCode</td><td><span class="type-badge">string</span></td><td>Optional</td><td>Lorem ipsum dolor sit amet.</td></tr>
         </tbody>
       </table>
@@ -55,10 +59,10 @@ export class ValidateTPlusAccountComponent {
   curlRequest = `curl --location 'https://inboundv5.sombank.so/api/User/ValidateTPlusAccount' \\
 --header 'X-API-Key: yMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQyMVC43RGT6lhesMwj-HjC8tVSOfMSpSweAZqmApzuUQ' \\
 --data-raw '{
-    "userName": "worldremit",
-    "password": "Wr@123456",
+    "userName": "",
+    "password": "",
     "account": "",
-    "Mop": "Remittance",
+    "Mop": "",
     "bankCode": ""
 }'`;
 
@@ -67,15 +71,15 @@ export class ValidateTPlusAccountComponent {
     "message": "User details validated successfully",
     "status": 200,
     "data": {
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImUxMGE5NTVhLThhZmUtNDVkYS1hYzUwLWNhNWM3NTE4OTU5YyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJ3b3JsZHJlbWl0IiwianRpIjoiZTAzMTJkM2QtNTBkOC00YjcxLWJkMGUtNTkyODhlODM3NmU2IiwiaWF0IjoiMTc4OTAzMjQ0NSIsIlBhcnRuZXJDb2RlIjoiV3JAMTIzNDU2IiwiUGFydG5lckVtYWlsIjoid29ybGRyZW1pdEBzbS5zbyIsIlBhcnRuZXJQaG9uZSI6IisyNTI5MDc3OTE3NzkiLCJQYXJ0bmVyQ291bnRyeSI6IlNvbWFsaWEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQYXJ0bmVyIiwiTW9wSWQiOiIyIiwiZXhwIjoxNzg5MDM2MDQ1LCJpc3MiOiJUUGx1c0luQm91bmRBcGlzIiwiYXVkIjoiVFBsdXNJbkJvdW5kQXBpcyJ9.AN_On3_J5mwxx40RJZaHGtjcC8nsZRTgR0Zlk3SCpvg",
-        "mop": "TAWAKAL",
-        "status": "valid",
-        "account_type": "wallet",
+        "token": "",
+        "mop": "",
+        "status": "",
+        "account_type": "",
         "receiver_name": "",
         "AccountNo": "",
-        "currency": "USD",
-        "ExchangeRate": "1.0",
-        "remarks": "Validated successfully through Tawakal channel"
+        "currency": "",
+        "ExchangeRate": "",
+        "remarks": ""
     },
     "errors": null
 }`;
