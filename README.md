@@ -57,3 +57,18 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+### START
+### START
+
+
+### This below command will create a folder name as "single-file-output" 
+### and under that index.html file which contains all code in one file...
+
+npm run build:single
+
+
+#### END
+#### END
