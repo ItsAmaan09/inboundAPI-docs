@@ -16,35 +16,77 @@ import { Component, Input } from '@angular/core';
       </div>
     </div>
   `,
-  styles: [`
-    .topbar {
-      position: fixed; top: 0; left: 0; right: 0; height: 56px;
-      background: var(--sidebar); color: #fff; z-index: 50;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 20px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .brand { display: flex; align-items: baseline; gap: 10px; }
-    .brand-name { font-weight: 700; font-size: 17px; letter-spacing: .2px; }
-    .brand-sub { font-size: 12.5px; color: rgba(255,255,255,.75); }
-    .meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: rgba(255,255,255,.8); }
-    .version-badge {
-      background: rgba(74,222,128,0.18); color: var(--sidebar-active);
-      border: 1px solid rgba(74,222,128,0.4);
-      padding: 2px 9px; border-radius: 20px; font-weight: 600; font-size: 12px;
-    }
-    .hamburger {
-      display: none; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer;
-      padding: 4px 8px;
-    }
-    @media (max-width: 768px) {
-      .hamburger { display: block; }
-    }
-  `]
+  styles: [
+    `
+      .topbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 56px;
+        background: var(--sidebar);
+        color: #fff;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+      }
+      .brand-name {
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+      }
+      .brand-sub {
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .version-badge {
+        background: rgba(74, 222, 128, 0.18);
+        color: var(--sidebar-active);
+        border: 1px solid rgba(74, 222, 128, 0.4);
+        padding: 2px 9px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 12px;
+      }
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        padding: 4px 8px;
+      }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+        }
+      }
+    `,
+  ],
 })
 export class HeaderComponent {
   @Input() title = 'InBound API';
   @Input() subtitle = 'Integration Reference';
   @Input() version = 'v5';
-  lastUpdated = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  lastUpdated = new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 }

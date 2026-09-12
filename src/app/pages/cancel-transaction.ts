@@ -10,7 +10,9 @@ import { HighlightJsonPipe, HighlightCurlPipe } from '../pipes/highlight.pipe';
     <section id="section-3">
       <h2>Cancel Transaction</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
       </p>
 
       <div class="code-block" style="margin-bottom: 24px;">
@@ -20,19 +22,47 @@ import { HighlightJsonPipe, HighlightCurlPipe } from '../pipes/highlight.pipe';
 
       <h3>Required Headers</h3>
       <table>
-        <thead><tr><th>Header</th><th>Value</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Header</th>
+            <th>Value</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td class="field-name">x-api-key</td><td>&#123;your_api_key&#125; <span class="req">*</span></td></tr>
-          <tr><td class="field-name">Content-Type</td><td>application/json <span class="req">*</span></td></tr>
+          <tr>
+            <td class="field-name">x-api-key</td>
+            <td>&#123;your_api_key&#125; <span class="req">*</span></td>
+          </tr>
+          <tr>
+            <td class="field-name">Content-Type</td>
+            <td>application/json <span class="req">*</span></td>
+          </tr>
         </tbody>
       </table>
 
       <h3>Request Body</h3>
       <table>
-        <thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Type</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td class="field-name">TplusTransactionReferenceId<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
-          <tr><td class="field-name">CancellationReasonId<span class="req">*</span></td><td><span class="type-badge">string</span></td><td>Required</td><td>Lorem ipsum dolor sit amet.</td></tr>
+          <tr>
+            <td class="field-name">TplusTransactionReferenceId<span class="req">*</span></td>
+            <td><span class="type-badge">string</span></td>
+            <td>Required</td>
+            <td>Lorem ipsum dolor sit amet.</td>
+          </tr>
+          <tr>
+            <td class="field-name">CancellationReasonId<span class="req">*</span></td>
+            <td><span class="type-badge">string</span></td>
+            <td>Required</td>
+            <td>Lorem ipsum dolor sit amet.</td>
+          </tr>
         </tbody>
       </table>
 
@@ -47,7 +77,7 @@ import { HighlightJsonPipe, HighlightCurlPipe } from '../pipes/highlight.pipe';
         <span [innerHTML]="jsonResponse | highlightJson"></span>
       </app-code-block>
     </section>
-  `
+  `,
 })
 export class CancelTransactionComponent {
   curlRequest = `curl --location 'https://inboundv5.sombank.so/api/User/CancelTransaction' \\
